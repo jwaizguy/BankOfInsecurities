@@ -1,0 +1,25 @@
+# To create a PostgreSQL container and run it:
+# docker run --hostname boi_db_server --name boi_db_server -p 5432:5432 -e POSTGRES_USER=boi -e POSTGRES_PASSWORD=boi123 -e POSTGRES_DB=cigital_boi -d cigital/boi_db_server
+
+# Get an Alpine-PostgreSQL image
+FROM onjin/alpine-postgres
+
+# Set the image maintainer
+MAINTAINER cigital_inc
+
+RUN echo 'Setting up the PostgreSQL Server ...'
+
+# Set up the Environment variables
+ENV POSTGRES_USER boi
+ENV POSTGRES_PASSWORD boi123
+ENV POSTGRES_DB cigital_boi
+
+# Add the required DB script file and execute it
+RUN echo 'Executing the database scripts...'
+
+ADD docker-entrypoint-initdb.d/ /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/*
+
+RUN echo 'Database Scripts executed successfully!'
+RUN echo 'PostgreSQL Server set up is complete ...'
+

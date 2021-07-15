@@ -1,0 +1,49 @@
+# To create a PostgreSQL container and run it:
+# docker run --hostname boi_db_server --name boi_db_server -p 5432:5432 -e POSTGRES_USER=boi -e POSTGRES_PASSWORD=boi123 -e POSTGRES_DB=cigital_boi -d cigital/boi_db_server
+
+# Get an Alpine-PostgreSQL image
+FROM kiasaki/alpine-postgres
+
+# Set the image maintainer
+MAINTAINER cigital_inc
+
+RUN echo 'Setting up the PostgreSQL Server ...'
+
+# Set up the Environment variables
+ENV POSTGRES_USER boi
+ENV POSTGRES_PASSWORD boi123
+ENV POSTGRES_DB cigital_boi
+
+# Add the required DB script file and execute it
+RUN echo 'Executing the database scripts...'
+
+RUN echo 'Executing step1 ...'
+ADD db_step1.sql /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/db_step1.sql
+
+RUN echo 'Executing step2 ...'
+ADD db_step2.sql /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/db_step2.sql
+
+RUN echo 'Executing step3 ...'
+ADD db_step3.sql /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/db_step3.sql
+
+RUN echo 'Executing step4 ...'
+ADD db_step4.sql /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/db_step4.sql
+
+RUN echo 'Executing step5 ...'
+ADD db_step5.sql /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/db_step5.sql
+
+RUN echo 'Executing step6 ...'
+ADD db_step6.sql /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/db_step6.sql
+
+RUN echo 'Executing step7 ...'
+ADD db_step7.sql /docker-entrypoint-initdb.d/
+RUN chmod 755 /docker-entrypoint-initdb.d/db_step7.sql
+
+RUN echo 'Database Scripts executed successfully!'
+RUN echo 'PostgreSQL Server set up is complete ...'

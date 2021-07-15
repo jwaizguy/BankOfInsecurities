@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping.dtd">
+
+<hibernate-mapping>
+    <class name="com.orm.Account" table="boi.TB_ACCOUNTS">
+        <id name="accountID" type="long">
+            <column name="accountID" unique="true" not-null="true"/>
+            <generator class="identity" />
+        </id>
+        <property name="accountType" type="char">
+            <column name="accountType" not-null="true"/>
+        </property>
+        <property name="userID" type="java.lang.String">
+            <column name="userID" not-null="true"/>
+        </property>
+        <property name="accountBalance" type="double">
+            <column name="accountBalance" not-null="true"/>
+        </property>
+        <property name="created" type="java.sql.Date">
+            <column name="created" not-null="true"/>
+        </property>
+        <property name="isActive" type="boolean">
+            <column name="isActive" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

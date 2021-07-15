@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping.dtd">
+
+<hibernate-mapping>
+    <class name="com.orm.UserMessage" table="boi.TB_USER_MESSAGES">
+        <id name="msgID" type="java.lang.String">
+            <column name="msgID" not-null="true" length="15"/>
+            <generator class="assigned" />
+        </id>
+        <property name="subject" type="java.lang.String">
+            <column name="subject" length="250"/>
+        </property>
+        <property name="msg" type="java.lang.String">
+            <column name="msg" length="1000"/>
+        </property>
+        <property name="sender" type="java.lang.String">
+            <column name="sender" length="25"/>
+        </property>
+        <property name="fileName" type="java.lang.String">
+            <column name="fileName" length="25"/>
+        </property>
+    </class>
+</hibernate-mapping>

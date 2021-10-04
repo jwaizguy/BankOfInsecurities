@@ -6,7 +6,7 @@ on:
 jobs:
   build:
 
-    runs-on: Alpine
+    runs-on: Ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2

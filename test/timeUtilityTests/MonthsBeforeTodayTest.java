@@ -32,6 +32,7 @@ public class MonthsBeforeTodayTest {
 		// set back 23 months, should say it is 2 years ago
 		output = timeUtility.getYearOfNMonthsBeforeDate(date1, 23);
 		assertEquals(output, this.baseYear - 2);
+		
 	}
 
 }

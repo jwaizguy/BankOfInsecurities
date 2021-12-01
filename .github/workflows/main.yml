@@ -30,7 +30,7 @@ jobs:
         sarif_file: sigma-results.json
 
     # Perform Software Composition Analysis
-    - name: Software Composition Analysis with Black Duck
+    - name: Software Composition Analysis  Rapid Scan with Black Duck
       uses: blackducksoftware/github-action@v2
       with:
         version: 7

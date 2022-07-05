@@ -16,7 +16,7 @@ jobs:
         java-version: 1.8
 
     # Perform Quick Static Analysis Download SIGMA from Artifactory
-    - name: Quick Static Analysis with SIGMA
+    - name: Quick Static Analysis with SIGMA2
       run: |
         wget --user josew --password ${{ secrets.ARTIFACTORY_PASSWORD}} http://salesaf.blackduck.synopsys.com/artifactory/detect-local/sigma
         chmod +x sigma
